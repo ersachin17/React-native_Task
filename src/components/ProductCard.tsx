@@ -22,7 +22,6 @@ const  ProductCard = ({product}) => {
       <Text>⭐⭐⭐⭐ {product.rating}</Text>
 
       <Text>Stock: {product.stock}</Text>
-       <Text>ProdcutId:{product.id}</Text>
       <Button title="View Details"/>
 
     </View>
