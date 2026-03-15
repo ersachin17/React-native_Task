@@ -15,7 +15,6 @@ import loginReducer from './loginSlice';
 const persistConfig = {
   key: 'root',
   storage:AsyncStorage,
-  blacklist: ['getallplans','selectedrecharge'],
   whitelist: ['login'], // only persist this reducer
 };
 

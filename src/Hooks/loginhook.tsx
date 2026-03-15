@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/loginSlice";
 
 const useLogin = () => {
 
   const [loading,setLoading] = useState(false);
   const [error,setError] = useState(null);
-
+   const dispatch = useDispatch();
   const loginUser = async(username,password)=>{
 
     setLoading(true);
@@ -29,7 +31,7 @@ const useLogin = () => {
 
       setError("Invalid username or password");
       setLoading(false);
-
+      dispatch(login("token123"))
       return null;
     }
 

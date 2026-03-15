@@ -15,8 +15,8 @@ const useProducts = () => {
         `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
       );
 
-      setProducts(prev => [...prev,...res.data.products]);
-
+      console.log("data",res.data)
+      setProducts((prev)=>[...prev,...res.data.products]);
     }catch(error){
       console.log(error)
     }
@@ -39,15 +39,14 @@ const useProducts = () => {
 
   }
 
-  const loadMore = ()=>{
-    setSkip(prev => prev + limit);
-  }
+
 
   return{
+    skip,
+    setSkip,
     products,
     fetchProducts,
     searchProducts,
-    loadMore
   }
 
 }

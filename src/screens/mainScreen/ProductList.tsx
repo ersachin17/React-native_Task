@@ -10,13 +10,12 @@ import useProducts from "../../Hooks/hooks";
 const  ProductListScreen = () => {
 
 const dispatch = useDispatch();
-const {products,fetchProducts,searchProducts} = useProducts();
-const [skip,setSkip] = useState(0);
+const {products,fetchProducts,searchProducts,setSkip,skip} = useProducts();
 const [search,setSearch] = useState("");
 
 useEffect(()=>{
 fetchProducts();
-},[])
+},[skip])
 
 const handleSearch = (text)=>{
 setSearch(text)
@@ -46,10 +45,9 @@ searchProducts(text)
         <ProductCard product={item}/>
        )}
 
-       onEndReached={()=>{
-        setSkip(skip+10)
-        fetchProducts()
-       }}
+      onEndReached={()=>{
+  setSkip(prev => prev + 10)
+}}
   showsVerticalScrollIndicator={false}
       />
 
